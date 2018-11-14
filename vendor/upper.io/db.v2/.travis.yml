@@ -1,0 +1,49 @@
+sudo: required
+dist: precise
+
+notifications:
+  email: false
+
+language: go
+
+go:
+  - "1.6"
+  - "1.7"
+  - "1.8"
+
+services:
+  - mongodb
+  - mysql
+  - postgresql
+
+addons:
+  postgresql: 9.5
+  apt:
+    sources:
+    - mongodb-3.0-precise
+    packages:
+    - mongodb-org-server
+    - mongodb-org-shell
+
+env:
+  global:
+    - MAKEFLAGS="-j4"
+    - GOARCH=amd64
+    - DB_HOST=127.0.0.1
+  matrix:
+    - TEST_CMD="make benchmark test-main"
+    - TEST_CMD="make test-adapters"
+
+install:
+  - mkdir -p $GOPATH/src/upper.io
+  - mv $PWD $GOPATH/src/upper.io/db.v2
+  - cd $GOPATH/src/upper.io/db.v2
+  - go get -t -v -d ./...
+  - go get -v github.com/cznic/ql/ql
+  - export TRAVIS_BUILD_DIR=$GOPATH/src/upper.io/db.v2
+
+before_script:
+  - mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root mysql
+
+script:
+  - ${TEST_CMD}
