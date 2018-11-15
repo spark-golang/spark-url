@@ -39,7 +39,6 @@ func Hello(c *gin.Context) {
 	req := &pb.HelloRequest{Name: name}
 	res, err := client.SayHello(c, req)
 
-
 	if err != nil {
 		c.JSON(http.StatusExpectationFailed, gin.H{"status_code": 200, "message": "success", "url": res.Message})
 		return

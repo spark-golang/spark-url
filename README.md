@@ -30,7 +30,6 @@ go run main.go
 
 3. Request 
 ```shell
-## gRPC hello
 curl -X "POST" "http://127.0.0.1:9999/local/hello" \
      -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
      --data-urlencode "name=Panda"
