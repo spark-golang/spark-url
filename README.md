@@ -1,5 +1,5 @@
 # spark-url
-Yet A other short url base on golang
+Yet Another short url base on golang
 
 # Base Use
 
