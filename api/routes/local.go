@@ -14,9 +14,9 @@ func local() {
 	local.Use(middlewares.InternalAvailable())
 	{
 		local.POST("/url_create", url.Create)
-		local.POST("/hello", url.Hello)
 
 	}
+	APP.POST("/hello", url.Hello)
 
 	APP.GET("/:str", url.Get)
 

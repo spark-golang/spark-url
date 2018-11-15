@@ -30,7 +30,7 @@ go run main.go
 
 3. Request 
 ```shell
-curl -X "POST" "http://127.0.0.1:9999/local/hello" \
+curl -X "POST" "http://127.0.0.1:9999/hello" \
      -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
      --data-urlencode "name=Panda"
 ```
