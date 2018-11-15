@@ -20,3 +20,7 @@ import:
   subpackages:
   - lib/sqlbuilder
   - mysql
+- package: google.golang.org/grpc
+  version: ^1.16.0
+  subpackages:
+  - reflection

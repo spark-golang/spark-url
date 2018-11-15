@@ -1,5 +1,5 @@
-hash: 90bc3a3b9dafea6001f0fe35add31b1bfa55241fa6adfb4a792af4331ddd8b3c
-updated: 2018-11-13T17:00:42.696272+08:00
+hash: 589c5e8bf1fec545cffc5077043d4b1f81e117821b1b4046903202236c0aaf8f
+updated: 2018-11-15T16:22:13.533816+08:00
 imports:
 - name: github.com/gin-contrib/sse
   version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
@@ -7,6 +7,7 @@ imports:
   version: b869fe1415e4b9eb52f247441830d502aece2d4d
   subpackages:
   - binding
+  - examples/grpc/pb
   - json
   - render
 - name: github.com/go-sql-driver/mysql
@@ -15,6 +16,11 @@ imports:
   version: 951a149f90371fb8858c6c979d03bb2583611052
   subpackages:
   - proto
+  - protoc-gen-go/descriptor
+  - ptypes
+  - ptypes/any
+  - ptypes/duration
+  - ptypes/timestamp
 - name: github.com/joho/godotenv
   version: 23d116af351c84513e1946b527c88823e476be13
 - name: github.com/json-iterator/go
@@ -49,14 +55,65 @@ imports:
   - internal/color
   - internal/exit
   - zapcore
+- name: golang.org/x/net
+  version: adae6a3d119ae4890b46832a2e88a95adc62b8e7
+  subpackages:
+  - context
+  - http/httpguts
+  - http2
+  - http2/hpack
+  - idna
+  - internal/timeseries
+  - trace
 - name: golang.org/x/sys
   version: 66b7b1311ac80bbafcd2daeef9a5e6e2cd1e2399
   subpackages:
   - unix
+- name: golang.org/x/text
+  version: 6f44c5a2ea40ee3593d98cdcc905cc1fdaa660e2
+  subpackages:
+  - secure/bidirule
+  - transform
+  - unicode/bidi
+  - unicode/norm
 - name: google.golang.org/appengine
   version: 4a4468ece617fc8205e99368fa2200e9d1fad421
   subpackages:
   - cloudsql
+- name: google.golang.org/genproto
+  version: b5d43981345bdb2c233eb4bf3277847b48c6fdc6
+  subpackages:
+  - googleapis/rpc/status
+- name: google.golang.org/grpc
+  version: 2e463a05d100327ca47ac218281906921038fd95
+  subpackages:
+  - balancer
+  - balancer/base
+  - balancer/roundrobin
+  - codes
+  - connectivity
+  - credentials
+  - encoding
+  - encoding/proto
+  - grpclog
+  - internal
+  - internal/backoff
+  - internal/channelz
+  - internal/envconfig
+  - internal/grpcrand
+  - internal/transport
+  - keepalive
+  - metadata
+  - naming
+  - peer
+  - reflection
+  - reflection/grpc_reflection_v1alpha
+  - resolver
+  - resolver/dns
+  - resolver/passthrough
+  - stats
+  - status
+  - tap
 - name: gopkg.in/go-playground/validator.v8
   version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
 - name: gopkg.in/redis.v5
@@ -79,4 +136,16 @@ imports:
   - lib/reflectx
   - lib/sqlbuilder
   - mysql
-testImports: []
+testImports:
+- name: github.com/davecgh/go-spew
+  version: d8f796af33cc11cb798c1aaeb27a4ebc5099927d
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: 792786c7400a136282c1664665ae0a8db921c6c2
+  subpackages:
+  - difflib
+- name: github.com/stretchr/testify
+  version: 04af85275a5c7ac09d16bb3b9b2e751ed45154e5
+  subpackages:
+  - assert
